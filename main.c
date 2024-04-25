@@ -1,13 +1,3 @@
-/**
-* @file main.c
-* @brief Testing Program.
-* @author S&T 
-* @version 0.1
-* @date mai 03, 2023
-*
-* Testing program for background scrollilng
-*
-*/
 #include<stdio.h>
 #include<stdlib.h>
 #include<SDL/SDL.h>
@@ -39,7 +29,6 @@ int main()
 	screen=SDL_SetVideoMode(2048,385,32,SDL_SWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE);
 	initialiser_audio(music);
 	initBack(&b);
-	initBack1(&m);
 	initialiser2(&b1);
 	initialiser1(&b2);
 	init_animerBack (& image, screen);
@@ -47,7 +36,7 @@ int main()
 	{
 	if(state==1)
 	{
-		aficherBack( b, screen);
+		afficherBack( b, screen);
 		animation2(b1,b2,screen,& cpt1);
 		animerBack( &image,&a);
 		
@@ -95,7 +84,7 @@ int main()
 		}
 		else if (state==2)
 		{
-			aficherBack( m, screen);
+			afficherBack( m, screen);
 			meilleur_score(fichier,tab,screen);
 			while(SDL_PollEvent(&event))
 			{

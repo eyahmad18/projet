@@ -1,7 +1,7 @@
 #include <SDL/SDL.h>
-#include <SDL/SDL_image.h> //Pour manipuler des images
-#include <SDL/SDL_mixer.h> //Pour manipuler audio
-#include <SDL/SDL_ttf.h> //Pour manipuler des textes
+#include <SDL/SDL_image.h> 
+#include <SDL/SDL_mixer.h> 
+#include <SDL/SDL_ttf.h> 
 #include "fonction.h"
 
 void initialiser_audio(Mix_Music *music)
@@ -31,24 +31,8 @@ void initBack(background * b)
     b->pos_ecran.h=385;
     b->pos_ecran.w=2048;
 }
-void initBack1(background * m)
-{
-    m->affichebackground=IMG_Load("background pr.png");
-    if(m->affichebackground == NULL)
-    {
-        printf("Unable to load background image %s \n",SDL_GetError());
-        return ;
-    }
-    m->camera_pos.x=0;
-    m->camera_pos.y=0;
-    m->camera_pos.w=2048;
-    m->camera_pos.h=385;
-    m->pos_ecran.x=0;
-    m->pos_ecran.y=0;
-    m->pos_ecran.h=2048;
-    m->pos_ecran.w=385;
-}
-void aficherBack(background b, SDL_Surface * screen)
+
+void afficherBack(background b, SDL_Surface * screen)
 {
     SDL_BlitSurface(b.affichebackground,&(b.camera_pos),screen,&(b.pos_ecran));
 }
@@ -68,7 +52,7 @@ void initialiser1(background* b)
    b->pos_ecran.x=0;
    b->pos_ecran.y=0;
    b->pos_ecran.h=100;
-    b->pos_ecran.w=100;
+   b->pos_ecran.w=100;
 }
 void initialiser2(background* b)
 {
@@ -104,25 +88,6 @@ void scrolling (background * b, int direction )
 			}	
 }
 
-void init_animerBack (background* image,SDL_Surface * screen)
-{
-	image->img=NULL;
-    image->url="butterfly.png";
-    image->img=IMG_Load(image->url);  
-    if(image->img == NULL)
-    {
-        printf("Unable to load background image %s \n",SDL_GetError());
-        return ;
-    }
-    image->camera_pos.x=10;
-    image->camera_pos.y=10;
-    image->pos_ecran.x=0;
-    image->pos_ecran.y=0;
-    image->pos_ecran.h=image->img->h/1;
-    image->pos_ecran.w=image->img->w/4;
-    
-    
- }
 void animerBack(background * b,int * a)
 {
 
